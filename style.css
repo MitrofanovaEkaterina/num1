@@ -1,0 +1,9 @@
+body 
+{background-image : url("image/fon.jpg")} 
+H2 {text-align:center; font style:60pt; color:blue} 
+H3 {text-align:center; font style:30pt; color:green} 
+H4 {text-align:center; font style:20pt; color:red} 
+H5 {text-align:center; font style:15pt} p 
+{text-align:center; font-size:14pt; text-indent:15pt;
+ font-family:Comic Sans MS; color:black} .header 
+{text-align:center; font-size:14pt; font-weight:bold;}
