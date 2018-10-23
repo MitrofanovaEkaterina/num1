@@ -1,17 +1,16 @@
-<html> 
-<head>  
-<title>"Web-программирование" (Мерионкова Е. В.) - Курсовая работа</title>  
-<meta name='viewport' content='width=device-width, initial-scale=1.0' charset='utf-8'> 
-</head> 
-<body>  <h1>Баскетбольный турнир</h1>  
+﻿<?php
+ include_once "<header.php>" ;
+?>
+  <h1>Баскетбольный турнир</h1>  
 <h2>Изменение информации</h2>  
 <form action="processorderedit.php" method=post> 
  <table border=0>  <tr bgcolor=#cccccc>   
  <?php 
-echo "<body bgcolor=#ADFF2F>";  
+ 
 $nomer = $_REQUEST['nomer'];    
- echo '<input type="hidden" name="nomer" value="'.$nomer.'">'; 
- $handle = new mysqli('Merionkova', 'mysql', 'mysql', 'kursrab');  
+ echo '<input type="hidden" name="mysql" value="'.$nomer.'">'; 
+include_once 'config.php' ; 
+
  $query = "SELECT nomer, komanda, Protivnik, Schet, Data, Pobeda FROM Turnir WHERE nomer=$nomer";   
  $result = $handle->query($query);   
  
@@ -32,5 +31,6 @@ $nomer = $_REQUEST['nomer'];
  <input type=submit value="Изменить данные"></td></tr>  
  </table>  
  </form>  
- </body> 
- </html> 
+ <?php  
+echo include_once "<footer.php>" ;
+ ?> 

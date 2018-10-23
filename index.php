@@ -1,28 +1,21 @@
-<html> 
-<head>  
-<title>"Web-программирование" (Мерионкова Е.В.) - Курсовая работа </title>  
-<meta name='viewport' content='width=device-width, initial-scale=1.0' charset='utf-8'> 
-</head> 
+﻿<?php 
+ 
+ 
 
-<body> 
-<h1>Баскетбольный турнир</h1>  
-<h2>Проведенные игры</h2>  
-<?php 
+include_once '<header.php>' ;
 
-
-echo "<body bgcolor=#ADFF2F>";  
-
-
-$handle = new mysqli('Merionkova', 'mysql', 'mysql', 'kursrab');   
-$query = "SELECT nomer, 
-Komanda,      
+include_once '<config.php>' ;
+print_r($config);
+echo '<h1>Баскетбольный турнир</h1> '; 
+echo '<h2>Проведенные игры</h2>';
+ $query = "SELECT nomer, Komanda,  
 Protivnik,      
 Schet,
 Data,     
 Pobeda           
-FROM Turnir";  
+FROM Turnir';  
 $result = $handle->query($query);    
-$numresult=$result->num_rows;       
+$numresult=$result->num_rows";       
 echo '<table border=1>';
 echo '<tr><th>Номер</th>';   
 echo '<th>Команда</th>';  
@@ -54,9 +47,8 @@ $row=$result->fetch_assoc();
   echo '<input type="submit" value="Изменить"></td>';   
   echo '</form>';     
   }  
-  echo '</table>'
-  ?>  
-  <p><a href='orderformadd.php'>Добавить игру</a>  
-  <p><a href='../index.php'>К содержанию</a>  
-  </body> 
-  </html>
+  echo '</table>';
+    ?>  
+<p><a href='orderformadd.php'>Добавить игру</a>
+<p><a href='../index.php'>К содержанию</a>
+

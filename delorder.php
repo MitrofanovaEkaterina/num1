@@ -1,8 +1,4 @@
-<html> 
-<head> 
-<title>"Web-программирование" (Мерионкова Е. В.) - Курсовая работа</title>  
-<meta name='viewport' content='width=device-width, initial-scale=1.0' charset='utf-8'> 
-</head> 
+﻿echo include_once "<header.php>" ;
 <body>  
 <h1>Баскетбольный турнир</h1>   
 <h2>Удаление данных</h2>  
@@ -12,8 +8,7 @@ echo "<body bgcolor=#ADFF2F>";
 
 
 $nomer = $_REQUEST['nomer']; 
- $handle = new mysqli('Merionkova', 'mysql', 'mysql', 'kursrab');  
- 
+include_once 'config.php' ;
  $query = "DELETE FROM Turnir WHERE nomer=$nomer"; 
  
  $result = $handle->query($query);   

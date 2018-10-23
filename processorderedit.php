@@ -1,12 +1,6 @@
-<html> <head>  <title>"Web-программирование" (Мерионкова Е.В.) - Курсовая работа</title>  
-<meta name='viewport' content='width=device-width, initial-scale=1.0' charset='utf-8'> 
-</head> 
-<body>  
-<h1>Баскетбольный турнир</h1> 
- 
+﻿
  <?php  
-echo "<body bgcolor=#ADFF2F>";  
-$nomer = $_REQUEST['nomer'];  
+$nomer = (int)$_REQUEST['nomer'];  
 $Komanda = $_REQUEST['Komanda'];  
 $Protivnik = $_REQUEST['Protivnik'];  
 $Schet = $_REQUEST['Schet'];  
@@ -14,16 +8,18 @@ $Data= $_REQUEST['Data'];
 $Pobeda= $_REQUEST['Pobeda'];  
 if ((!isset($nomer))||(!$Komanda)||(!$Protivnik)||(!$Schet)||(!$Data)||(!$Pobeda))  
  {   
+include_once "<header.php>" ;
 echo '<p>Вы не указали все данные. Повторите ввод.';   
 echo '<p><a href="index.php">Проведенные игры</a>';   
-echo '</body></html>';  
+include_once "<footer.php>" ; 
  exit;  }       
 
 
  
      
- $handle = new mysqli('Merionkova', 'mysql', 'mysql', 'kursrab');  
- 
+include_once '<config.php>' ;
+$handle = new mysqli($config['db']['host'], $config['db']['user'], $config['db']['password'], $config['db']['db']);
+
  $query = "UPDATE Turnir SET nomer=$nomer, Komanda='$Komanda',   Protivnik='$Protivnik',   Schet='$Schet',   data='$data',    Pobeda='$Pobeda'  WHERE Komanda='$Komanda' "; 
  $result = $handle->query($query);   
  
@@ -31,6 +27,5 @@ echo '</body></html>';
  if (!$result) echo "Ошибка сохранения данных"; 
  
  echo "<p><a href='index.php'>Проведенные игры</a>";  
+
  ?> 
- </body>
- </html> 
