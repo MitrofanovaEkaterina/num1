@@ -1,23 +1,18 @@
-<html> 
-<head>  
-<title>"Web-программирование" (Мерионкова Е. В.) - Курсовая работа</title>  
-<meta name='viewport' content='width=device-width, initial-scale=1.0' charset='utf-8'> 
-</head> 
-<body>  <h1>Баскетбольный турнир</h1>  
-<h2>Изменение информации</h2>  
-<form action="processorderedit.php" method=post> 
- <table border=0>  <tr bgcolor=#cccccc>   
- <?php 
-echo "<body bgcolor=#ADFF2F>";  
-$nomer = $_REQUEST['nomer'];    
+﻿<?php
+ include_once 'header.php' ;
+ include_once 'function.php' ;
+ echo '<h1>Баскетбольный турнир</h1>';  
+ echo '<h2>Изменение информации</h2>  ';
+ echo '<form action="processorderedit.php" method=post> ';
+  echo '<table border=0>  <tr bgcolor=#cccccc>  '; 
+ 
+  $nomer = (int)['nomer'];    
  echo '<input type="hidden" name="nomer" value="'.$nomer.'">'; 
- $handle = new mysqli('Merionkova', 'mysql', 'mysql', 'kursrab');  
- $query = "SELECT nomer, komanda, Protivnik, Schet, Data, Pobeda FROM Turnir WHERE nomer=$nomer";   
- $result = $handle->query($query);   
+  include_once 'dbconn.php';
+  $query = "SELECT nomer, komanda, Protivnik, Schet, Data, Pobeda FROM Turnir WHERE nomer=$nomer";   
  
-  $row=$result->fetch_assoc;   
- echo '<tr><td>Номер<td align=left><input type="text" name="nomer" value='.$row['nomer'].'>';  
- 
+$result = $handle->query($query);  
+  $row=$result->fetch_assoc; 
  echo '<tr><td>Команда<td align=left><input type="text" name="Komanda" size=12 maxlength=12 value='.$row['Komanda'].'>';  
  echo '<tr><td>Противник<td align=left><input type="text" name="Protivnik" size=12 maxlength=12 value='.$row['Protivnik'].'>';  
  echo '<tr><td>Счет<td align=left><input type="text" name="Schet" size=12 maxlength=12 value='.$row['Schet'].'>';  
@@ -27,10 +22,12 @@ $nomer = $_REQUEST['nomer'];
  
  
  
-  ?>  
- <tr><td colspan=2 align=center>
- <input type=submit value="Изменить данные"></td></tr>  
- </table>  
- </form>  
- </body> 
- </html> 
+ 
+  echo '<tr><td colspan=2 align=center>';
+  echo '<input type=submit value="Изменить данные"></td></tr>  ';
+  echo '</table>  ';
+ echo ' </form>';  
+ 
+include_once 'footer.php' ;
+ ?> 
+ 

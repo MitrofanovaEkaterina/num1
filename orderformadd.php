@@ -1,9 +1,8 @@
-<html> 
-<head>  
-<title>"Web-программирование" (Мерионкова Е. В.) - Курсовая работа</title>  
-<meta name='viewport' content='width=device-width, initial-scale=1.0' charset='utf-8'> 
-</head> 
-<body bgcolor=#ADFF2F>  
+﻿ 
+ <?php
+include_once 'header.php' ;
+?>
+
 <h1>Баскетбольный турнир</h1>   
 <h2>Форма</h2> 
  
@@ -29,5 +28,6 @@
 <input type=submit value="Добавить игру"></td>  
 </table>  
 </form>   
-</body> 
-</html>
+<?php
+ include_once 'footer.php' ;
+?>
